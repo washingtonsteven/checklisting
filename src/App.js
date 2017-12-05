@@ -14,10 +14,17 @@ class App extends Component {
         { listItemText:"Item 3", listItemCompleted:false, _id:"59a64327da23dae90a26ef8f" },
       ]
     }
+
+    this.onListViewChange = this.onListViewChange.bind(this);
   }
+
+  onListViewChange(listItems) {
+    this.setState({listItems});
+  }
+
   render() {
     return (
-      <ListView listItems={this.state.listItems}/>
+      <ListView listItems={this.state.listItems} onChange={this.onListViewChange}/>
     );
   }
 }
